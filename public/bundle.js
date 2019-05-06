@@ -701,30 +701,60 @@ __webpack_require__.r(__webpack_exports__);
  *  This function is called every time the user changes types or changes any input
  */
 function render(variables = {}) {
-  // here we ask the logical questions to make decitions on how to build the heml
+  // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+
+  let aName = "Name";
+  if (variables.name !== null) aName = variables.name;
+
+  let bName = "Last Name";
+  if (variables.lastname !== null) bName = variables.lastname;
+
+  let cName = "";
+  if (variables.twitter !== null) cName = variables.twitter;
+
+  let dName = "github";
+  if (variables.alesanchezr !== null) dName = variables.github;
+
+  let eName = "";
+  if (variables.linkedin !== null) eName = variables.linkedin;
+
+  let fName = "";
+  if (variables.instagram !== null) fName = variables.instagram;
+
+  let gName = "unemployed";
+  if (variables.role !== null) gName = variables.role;
+
+  let hName = "City";
+  if (variables.city !== null) hName = variables.city;
+
+  let iName = "Country";
+  if (variables.country !== null) iName = variables.country;
+
+  let jName = "position-right";
+  if (variables.socialMediaPosition !== "left") jName = variables.socialMediaPosition;
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${aName}  ${bName}</h1>
+          <h2>${gName}</h2>
+          <h3>${hName}, ${iName}</h3>
+          <ul class=${jName}>
+            <li><a href="https://twitter.com/${cName}"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${dName}"><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${eName}"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${fName}"><i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
 }
 
 /**
- * Ignore this lines below, here is where we do the logic for the dropdowns
+ * Don't change any of the lines below, here is where we do the logic for the dropdowns
  */
 window.onload = function () {
   window.variables = {
